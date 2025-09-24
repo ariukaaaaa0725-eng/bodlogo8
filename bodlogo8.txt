@@ -1,7 +1,6 @@
 import re
 
 def split_words_and_separators(text):
-    # Regex to split and capture the separators (space, comma + space)
     parts = re.split(r'(\s|,\s)', text)
     
     words = []
@@ -11,7 +10,6 @@ def split_words_and_separators(text):
     while i < len(parts):
         if parts[i] not in [' ', ', ']:  # It's a word
             words.append(parts[i])
-            # Check if next part is a separator
             if i + 1 < len(parts) and parts[i + 1] in [' ', ', ']:
                 separators.append(parts[i + 1])
             i += 2
@@ -19,9 +17,6 @@ def split_words_and_separators(text):
             i += 1  # Skip unexpected separator at start
 
     return [words, separators]
-
-
-# Test examples
 inputs = [
     "W3resource Python, Exercises.",
     "The dance, held in the school gym, ended at midnight.",
@@ -32,3 +27,4 @@ for text in inputs:
     print(f"Input: {text}")
     print("Output:", split_words_and_separators(text))
     print()
+
